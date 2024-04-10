@@ -142,10 +142,10 @@ call s:hi("PmenuSbar", s:nord4_gui, s:nord2_gui, "NONE", s:nord1_term, "", "")
 call s:hi("PmenuSel", s:nord8_gui, s:nord3_gui, s:nord8_term, s:nord3_term, "", "")
 call s:hi("PmenuThumb", s:nord8_gui, s:nord3_gui, "NONE", s:nord3_term, "", "")
 call s:hi("SpecialKey", s:nord3_gui, "", s:nord3_term, "", "", "")
-call s:hi("SpellBad", s:nord11_gui, s:nord0_gui, s:nord11_term, "NONE", "undercurl", s:nord11_gui)
-call s:hi("SpellCap", s:nord13_gui, s:nord0_gui, s:nord13_term, "NONE", "undercurl", s:nord13_gui)
-call s:hi("SpellLocal", s:nord5_gui, s:nord0_gui, s:nord5_term, "NONE", "undercurl", s:nord5_gui)
-call s:hi("SpellRare", s:nord6_gui, s:nord0_gui, s:nord6_term, "NONE", "undercurl", s:nord6_gui)
+call s:hi("SpellBad", "", "", "NONE", "NONE", "undercurl", s:nord11_gui)
+call s:hi("SpellCap", "", "", "NONE", "NONE", "undercurl", s:nord13_gui)
+call s:hi("SpellLocal","", "", "NONE", "NONE", "undercurl", s:nord5_gui)
+call s:hi("SpellRare", "", "", "NONE", "NONE", "undercurl", s:nord6_gui)
 call s:hi("Visual", "", s:nord2_gui, "", s:nord1_term, "", "")
 call s:hi("VisualNOS", "", s:nord2_gui, "", s:nord1_term, "", "")
 
@@ -185,10 +185,10 @@ if has('nvim')
   call s:hi("DiagnosticError" , s:nord11_gui, "", s:nord11_term, "", "", "")
   call s:hi("DiagnosticInfo" , s:nord8_gui, "", s:nord8_term, "", "", "")
   call s:hi("DiagnosticHint" , s:nord10_gui, "", s:nord10_term, "", "", "")
-  call s:hi("DiagnosticUnderlineWarn" , s:nord13_gui, "", s:nord13_term, "", "undercurl", "")
-  call s:hi("DiagnosticUnderlineError" , s:nord11_gui, "", s:nord11_term, "", "undercurl", "")
-  call s:hi("DiagnosticUnderlineInfo" , s:nord8_gui, "", s:nord8_term, "", "undercurl", "")
-  call s:hi("DiagnosticUnderlineHint" , s:nord10_gui, "", s:nord10_term, "", "undercurl", "")
+  call s:hi("DiagnosticUnderlineWarn" , "", "", s:nord13_term, "", "undercurl", s:nord13_gui)
+  call s:hi("DiagnosticUnderlineError" , "", "", s:nord11_term, "", "undercurl", s:nord11_gui)
+  call s:hi("DiagnosticUnderlineInfo" , "", "", s:nord8_term, "", "undercurl", s:nord8_gui)
+  call s:hi("DiagnosticUnderlineHint" , "", "", s:nord10_term, "", "undercurl", s:nord10_gui)
 
   "+- Neovim DocumentHighlight -+
   call s:hi("LspReferenceText", "", s:nord3_gui, "", s:nord3_term, "", "")
@@ -368,16 +368,20 @@ hi! link dtLocaleValue Keyword
 hi! link dtTypeValue Keyword
 
 if g:nord_uniform_diff_background == 0
-  call s:hi("DiffAdd", s:nord14_gui, s:nord0_gui, s:nord14_term, "NONE", "inverse", "")
-  call s:hi("DiffChange", s:nord13_gui, s:nord0_gui, s:nord13_term, "NONE", "inverse", "")
-  call s:hi("DiffDelete", s:nord11_gui, s:nord0_gui, s:nord11_term, "NONE", "inverse", "")
-  call s:hi("DiffText", s:nord9_gui, s:nord0_gui, s:nord9_term, "NONE", "inverse", "")
+  " call s:hi("DiffAdd", s:nord14_gui, s:nord0_gui, s:nord14_term, "NONE", "inverse", "")
+  " call s:hi("DiffChange", s:nord13_gui, s:nord0_gui, s:nord13_term, "NONE", "inverse", "")
+  " call s:hi("DiffDelete", s:nord11_gui, s:nord0_gui, s:nord11_term, "NONE", "inverse", "")
+  " call s:hi("DiffText", s:nord9_gui, s:nord0_gui, s:nord9_term, "NONE", "inverse", "")
 else
-  call s:hi("DiffAdd", s:nord14_gui, s:nord1_gui, s:nord14_term, s:nord1_term, "", "")
-  call s:hi("DiffChange", s:nord13_gui, s:nord1_gui, s:nord13_term, s:nord1_term, "", "")
-  call s:hi("DiffDelete", s:nord11_gui, s:nord1_gui, s:nord11_term, s:nord1_term, "", "")
-  call s:hi("DiffText", s:nord9_gui, s:nord1_gui, s:nord9_term, s:nord1_term, "", "")
+  " call s:hi("DiffAdd", s:nord14_gui, s:nord1_gui, s:nord14_term, s:nord1_term, "", "")
+  " call s:hi("DiffChange", s:nord13_gui, s:nord1_gui, s:nord13_term, s:nord1_term, "", "")
+  " call s:hi("DiffDelete", s:nord11_gui, s:nord1_gui, s:nord11_term, s:nord1_term, "", "")
+  " call s:hi("DiffText", s:nord9_gui, s:nord1_gui, s:nord9_term, s:nord1_term, "", "")
 endif
+call s:hi("DiffAdd", "NONE", s:nord1_gui, "NONE", s:nord1_term, "", "")
+call s:hi("DiffChange", "NONE", s:nord1_gui, "NONE", s:nord1_term, "", "")
+call s:hi("DiffDelete", "NONE", s:nord0_gui, "NONE", "NONE", "", "")
+call s:hi("DiffText", "NONE", s:nord3_gui_bright, "NONE", s:nord3_term, "", "")
 " Legacy groups for official git.vim and diff.vim syntax
 hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
