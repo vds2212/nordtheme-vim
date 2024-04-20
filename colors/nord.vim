@@ -290,7 +290,11 @@ else
   call s:highlight("CursorLineNr", s:white, s:dark_black, "NONE", "")
 endif
 
-call s:highlight("Folded", s:light_black, s:dark_black, s:bold, "")
+" Original
+" call s:highlight("Folded", s:light_black, s:dark_black, s:bold, "")
+" Make the foreground color more bright
+call s:highlight("Folded", s:white, s:dark_black, s:bold, "")
+
 call s:highlight("FoldColumn", s:light_black, s:black, "", "")
 call s:highlight("SignColumn", s:dark_black, s:black, "", "")
 
@@ -646,8 +650,11 @@ call s:highlight("ALEError", s:light_red, s:transparent, "undercurl", "")
 " > neoclide/coc.vim
 call s:highlight("CocWarningHighlight", s:light_yellow, s:transparent, "undercurl", "")
 call s:highlight("CocErrorHighlight", s:light_red, s:transparent, "undercurl", "")
-call s:highlight("CocWarningSign", s:light_yellow, s:transparent, "", "")
+" call s:highlight("CocWarningSign", s:light_yellow, s:transparent, "", "")
+call s:highlight("CocWarningSign", s:dark_yellow, s:transparent, "", "")
+call s:highlight("CocWarningVirtualText", s:dark_yellow, s:transparent, "", "")
 call s:highlight("CocErrorSign", s:light_red, s:transparent, "", "")
+call s:highlight("CocErrorVirtualText", s:light_red, s:transparent, "", "")
 call s:highlight("CocInfoSign", s:light_cyan, s:transparent, "", "")
 call s:highlight("CocHintSign", s:dark_blue, s:transparent, "", "")
 
@@ -917,6 +924,14 @@ hi! link VimwikiList markdownListMarker
 " YAML
 " > stephpy/vim-yaml
 call s:highlight("yamlKey", s:dark_cyan, s:transparent, "", "")
+
+" CSV
+" > chrisbra/csv.vim
+call s:highlight("CSVDelimiter", s:bright_black, s:black, "", "")
+call s:highlight("CSVColumnEven", s:white, s:medium_black, "", "")
+call s:highlight("CSVColumnOdd", s:white, s:black, "", "")
+call s:highlight("CSVColumnHeaderEven", s:white, s:medium_black, "", "")
+call s:highlight("CSVColumnHeaderOdd", s:white, s:black, "", "")
 
 "+------------+
 "+ Public API +
